@@ -12,9 +12,17 @@ function colorSet() {
     table.addEventListener('click', function(e){
         e.preventDefault();
         if(e.target.nodeName === 'TD'){
-            e.target.style.backgroundColor = colorPicker.value;
+            if(e.target.style.backgroundColor === "") {
+                e.target.style.backgroundColor = colorPicker.value;
+            } else {
+                e.target.style.backgroundColor = null;
+            }
         }
+
+
+
     });
+
 }
 
 // When size is submitted by the user, call makeGrid()
