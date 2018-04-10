@@ -8,8 +8,9 @@ const sizePicker = document.querySelector('#sizePicker');
 const table = document.querySelector('#pixelCanvas');
 
 // When size is submitted by the user, call makeGrid()
-function makeGrid() {
+function makeGrid(){
 
+    table.innerHTML =''; //czyszczenie tabeli
     const fragment = document.createDocumentFragment(); // DocumentFragment wrapper
 
     for(let h = 0; h < gridHeight.value; h++){
@@ -17,7 +18,7 @@ function makeGrid() {
         fragment.appendChild(tr);
         for(let w = 0; w < gridWitdh.value; w++){
             let td = document.createElement('td')
-            fragment.insertAdjacentElement('beforeend',td);
+            tr.appendChild(td);
         }
     }
 
