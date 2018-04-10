@@ -6,23 +6,43 @@ const gridHeight = document.querySelector('#inputHeight'); //wysokosc tabeli
 const gridWitdh = document.querySelector('#inputWeight'); //szerokosc tabeli
 const sizePicker = document.querySelector('#sizePicker');
 const table = document.querySelector('#pixelCanvas');
+let isClicked = false;
 
-// colro set function
+// check for click
+table.addEventListener('mousedown', function(e){
+    e.preventDefault();
+    isClicked = true;
+});
+
+table.addEventListener('mouseup', function(e){
+    e.preventDefault();
+    isClicked = false;
+});
+
+
+// color set function
 function colorSet() {
-    table.addEventListener('click', function(e){
+    table.addEventListener('mouseover', function(e){
         e.preventDefault();
-        if(e.target.nodeName === 'TD'){
-            if(e.target.style.backgroundColor === "") {
-                e.target.style.backgroundColor = colorPicker.value;
-            } else {
-                e.target.style.backgroundColor = null;
+        if(isClicked === true) {
+            if(e.target.nodeName === 'TD'){
+                if(e.target.style.backgroundColor === "") {
+                    e.target.style.backgroundColor = colorPicker.value;
+                }// else {
+                //     e.target.style.backgroundColor = null;
+                // }
             }
         }
-
-
-
     });
-
+}
+// remove color function
+function colorRemove() {
+    table.addEventListener('dblclick', function(e){
+        e.preventDefault();
+        if(e.target.nodeName === 'TD'){
+            e.target.style.backgroundColor = null;
+        }
+    });
 }
 
 // When size is submitted by the user, call makeGrid()
@@ -42,6 +62,7 @@ function makeGrid(){
     }
     table.appendChild(fragment);
     colorSet();
+    colorRemove();
 }
 
 sizePicker.addEventListener('submit',function(e){
