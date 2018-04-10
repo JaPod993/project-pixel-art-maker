@@ -20,21 +20,28 @@ table.addEventListener('mouseup', function(e){
 });
 
 
-// color set function
+// color set function on mouseover
 function colorSet() {
     table.addEventListener('mouseover', function(e){
         e.preventDefault();
         if(isClicked === true) {
             if(e.target.nodeName === 'TD'){
-                if(e.target.style.backgroundColor === "") {
-                    e.target.style.backgroundColor = colorPicker.value;
-                }// else {
-                //     e.target.style.backgroundColor = null;
-                // }
+                e.target.style.backgroundColor = colorPicker.value;
             }
         }
     });
 }
+
+//set color on click
+function colorClick() {
+    table.addEventListener('click', function(e){
+        e.preventDefault();
+            if(e.target.nodeName === 'TD'){
+                e.target.style.backgroundColor = colorPicker.value;
+            }
+    });
+}
+
 // remove color function
 function colorRemove() {
     table.addEventListener('dblclick', function(e){
@@ -62,6 +69,7 @@ function makeGrid(){
     }
     table.appendChild(fragment);
     colorSet();
+    colorClick();
     colorRemove();
 }
 
