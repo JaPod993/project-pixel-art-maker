@@ -30,11 +30,11 @@ table {
 }
 
 tr {
-    height: 20px;
+    height: 15px;
 }
 
 td {
-    width: 20px;
+    width: 15px;
 }
 
 input[type=number] {
