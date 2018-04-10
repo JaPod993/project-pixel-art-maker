@@ -1,9 +1,11 @@
 body {
     text-align: center;
+    font-family: 'Lato', sans-serif;
+    font-weight: 400;
 }
 
 h1 {
-    font-family: Monoton;
+    font-weight: 700;
     font-size: 70px;
     margin: 0.2em;
 }
@@ -37,4 +39,10 @@ td {
 
 input[type=number] {
     width: 6em;
+}
+
+.logo {
+    height: 50px;
+    display: block;
+    margin: 0 auto;
 }
