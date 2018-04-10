@@ -11,6 +11,7 @@ const table = document.querySelector('#pixelCanvas');
 function makeGrid(){
 
     table.innerHTML =''; //czyszczenie tabeli
+
     const fragment = document.createDocumentFragment(); // DocumentFragment wrapper
 
     for(let h = 0; h < gridHeight.value; h++){
@@ -21,8 +22,10 @@ function makeGrid(){
             tr.appendChild(td);
         }
     }
-
-
-
-
+    table.appendChild(fragment);
 }
+
+sizePicker.addEventListener('submit',function(e){
+    e.preventDefault();
+    makeGrid();
+});
